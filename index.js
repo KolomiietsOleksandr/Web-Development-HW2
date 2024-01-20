@@ -19,11 +19,11 @@ app.use((req, res, next) => {
 
 app.get('/html1', htmlHandler);
 app.get('/html2', htmlHandler);
-app.get('/file/:filename', fileHandler);
+app.use('/file', fileHandler);
 app.get('/objects/:type/:id', objectHandler);
 app.get('/objects/:type', objectHandler);
 app.get('/objects', objectHandler);
 
 app.listen(port, () => {
-    console.log(`Server is running on port http://localhost:3000`);
+    console.log(`Server is running on port http://localhost:${port}`);
 });
