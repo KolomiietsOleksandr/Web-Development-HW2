@@ -1,15 +1,15 @@
 const express = require('express');
 const fs = require('fs');
-const path = require('path');
 const app = express();
 const htmlHandler = require('./handlers/htmlHandler');
 const fileHandler = require('./handlers/fileHandler');
 const objectHandler = require('./handlers/objectHandler');
+const path = require('path');
 
 const port = 3000;
 
 app.use((req, res, next) => {
-    const whitelist = ['http://localhost:3000'];
+    const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
     const origin = req.headers.origin;
     if (whitelist.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
 app.get('/html1', htmlHandler);
 app.get('/html2', htmlHandler);
 app.use('/file', fileHandler);
-app.get('/objects', objectHandler);
+app.use('/objects', objectHandler);
 
 app.get('/info', (req, res) => {
-    const documentationPath = path.join('assets/Info/', 'apiDocumentation.json');
+    const documentationPath = path.join(__dirname, 'assets/Info/', 'apiDocumentation.json');
 
     try {
         const documentationContent = fs.readFileSync(documentationPath, 'utf-8');
