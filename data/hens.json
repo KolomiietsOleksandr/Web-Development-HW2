@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "Rhode Island Red",
+      "color": "Red",
+      "cluck": "Cluck cluck"
+    },
+    {
+      "id": 2,
+      "name": "Leghorn Hen",
+      "color": "White",
+      "cluck": "Cluck cluck cluck"
+    }
+  ]

@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "Mallard Duck",
+      "color": "Brown",
+      "quack": "Quack quack"
+    },
+    {
+      "id": 2,
+      "name": "Pekin Duck",
+      "color": "White",
+      "quack": "Quack quack quack"
+    }
+  ]

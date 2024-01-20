@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "Embden Goose",
+      "color": "White",
+      "honk": "Honk honk"
+    },
+    {
+      "id": 2,
+      "name": "African Goose",
+      "color": "Gray",
+      "honk": "Honk honk honk"
+    }
+  ]
