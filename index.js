@@ -20,9 +20,11 @@ app.use((req, res, next) => {
 app.get('/html1', htmlHandler);
 app.get('/html2', htmlHandler);
 app.use('/file', fileHandler);
-app.get('/objects/:type/:id', objectHandler);
-app.get('/objects/:type', objectHandler);
 app.get('/objects', objectHandler);
+
+app.use((req, res, next) => {
+    res.status(404).send('Not Found');
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`);
