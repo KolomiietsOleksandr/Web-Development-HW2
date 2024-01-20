@@ -1,0 +1,28 @@
+{
+    "endpoints": {
+      "html1": {
+        "method": "GET",
+        "description": "Get content of Page1.html",
+        "handler": "/html1"
+      },
+      "html2": {
+        "method": "GET",
+        "description": "Get content of Page2.html",
+        "handler": "/html2"
+      },
+      "file": {
+        "method": "GET",
+        "description": "Get audio or photo files",
+        "handler": "/file/:type/:filename"
+      },
+      "objects": {
+        "method": "GET",
+        "description": "Get information about objects",
+        "handler": {
+          "byId": "/objects/:type/:id",
+          "byType": "/objects/:type",
+          "all": "/objects"
+        }
+      }
+    }
+  }

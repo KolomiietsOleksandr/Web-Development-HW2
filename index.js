@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const htmlHandler = require('./handlers/htmlHandler');
 const fileHandler = require('./handlers/fileHandler');
@@ -17,10 +19,26 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', (req, res) => {
+    res.send("Main page");
+});
+
 app.get('/html1', htmlHandler);
 app.get('/html2', htmlHandler);
 app.use('/file', fileHandler);
 app.get('/objects', objectHandler);
+
+app.get('/info', (req, res) => {
+    const documentationPath = path.join('assets/Info/', 'apiDocumentation.json');
+
+    try {
+        const documentationContent = fs.readFileSync(documentationPath, 'utf-8');
+        const documentation = JSON.parse(documentationContent);
+        res.json(documentation);
+    } catch (error) {
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 app.use((req, res, next) => {
     res.status(404).send('Not Found');
